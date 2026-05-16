@@ -1,20 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Love You Baby 💕</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f0f4ff;
-      padding: 50px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0010, #3d0020, #6b0030);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
-    h1 { color: #333; }
-    p  { color: #666; font-size: 18px; }
+
+    /* Floating hearts background */
+    .hearts-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart-float {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.5rem;
+      animation: floatUp linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Main card */
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 100, 130, 0.3);
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 50px 40px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(255, 50, 100, 0.3);
+    }
+
+    .big-heart {
+      font-size: 5rem;
+      animation: heartbeat 1.2s ease-in-out infinite;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.2); }
+    }
+
+    .main-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #ff6b9d;
+      text-shadow: 0 0 20px rgba(255, 107, 157, 0.7);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #ffb3c6;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .divider {
+      color: #ff6b9d;
+      font-size: 1.3rem;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+    }
+
+    .message {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: #ffe0eb;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+
+    .roses {
+      font-size: 1rem;
+      color: #ffb3c6;
+      line-height: 2;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6b9d, #ff4d7d);
+      color: white;
+      padding: 12px 35px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      box-shadow: 0 0 25px rgba(255, 77, 125, 0.6);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 25px rgba(255, 77, 125, 0.6); }
+      50%       { box-shadow: 0 0 45px rgba(255, 77, 125, 1); }
+    }
+
+    .bottom-hearts {
+      margin-top: 25px;
+      font-size: 1.5rem;
+      letter-spacing: 8px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.2rem;
+      animation: sparkle 3s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50%       { opacity: 1; transform: scale(1.2); }
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website! 🎉</h1>
-  <p>Hello world! This is my first website.</p>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg" id="heartsContainer"></div>
+
+  <!-- Sparkles -->
+  <span class="sparkle" style="top:10%; left:5%;  animation-delay:0s;">✨</span>
+  <span class="sparkle" style="top:20%; right:8%; animation-delay:1s;">💫</span>
+  <span class="sparkle" style="top:70%; left:3%;  animation-delay:2s;">✨</span>
+  <span class="sparkle" style="top:80%; right:5%; animation-delay:0.5s;">💫</span>
+  <span class="sparkle" style="top:50%; left:92%; animation-delay:1.5s;">✨</span>
+
+  <!-- Main Card -->
+  <div class="card">
+    <span class="big-heart">💖</span>
+    <div class="main-title">I Love You, Baby</div>
+    <div class="subtitle">❤ Happy Valentine's Day ❤</div>
+
+    <div class="divider">💕 ✦ 💕 ✦ 💕</div>
+
+    <div class="message">
+      Every moment with you is magic 💫<br/>
+      You are my heart, my soul, my everything 💗<br/>
+      Forever and always, only you 🌹
+    </div>
+
+    <div class="roses">
+      🌹 Roses are red, violets are blue 🌸<br/>
+      No one in this world compares to you 💝
+    </div>
+
+    <div class="tag">💌 You are my Valentine 💌</div>
+
+    <div class="bottom-hearts">💖 💗 💓 💞 💕</div>
+  </div>
+
+  <script>
+    // Generate floating hearts
+    const container = document.getElementById('heartsContainer');
+    const heartEmojis = ['💖','💗','💓','💞','💕','❤️','🌹','💝','💘'];
+
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('span');
+      heart.classList.add('heart-float');
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+      heart.style.animationDuration = (Math.random() * 8 + 5) + 's';
+      heart.style.animationDelay = (Math.random() * 8) + 's';
+      container.appendChild(heart);
+    }
+  </script>
+
 </body>
 </html>
